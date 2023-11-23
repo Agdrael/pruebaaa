@@ -1,0 +1,381 @@
+/* fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+
+/* seccion 1 */
+.capa {
+    position: fixed;
+    width: 100%;    
+    height: 100vh;
+    background: #ffe5ca4b;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.seccion1 {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 80px;
+    background-color: rgba(0, 0, 0, 0.562);
+}
+
+.s1-wrapper1 {
+    display: inline-block;
+    height: 100%;
+    width: 56%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.s1-wrapper2 {
+    position: absolute;
+    display: inline-block;
+    height: 75.3%;
+    width: 43.8%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.img-wrapper1{
+    display: inline-block;
+    width:400px;
+    height: 100%;
+    margin-left: 10px;
+}
+.div2{
+    display: inline-block;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.seccion1-1 {
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 300px;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.808);
+}
+.s1-wrapper1  h3{
+    font-family: 'Bruno Ace SC', cursive; 
+    font-weight: 300;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 30px;
+    color: rgb(238, 238, 238);
+}
+.div2 h3{
+    
+    color:var(--color3);
+    font-size: 1.8rem;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+.div2 p{
+    color:var(--color2);
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.div2 a{
+    position: relative;
+    background-color: rgb(12, 12, 12);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--color4);
+    border-radius: 1px;
+    transition: all 0.3s ease-in-out;
+    padding: 5px 50px 5px 50px;
+    font-weight: 300;
+    margin-left: 10px;
+    top:50px;
+}
+.div2 a:hover{
+    background-color: var(--color5);
+}
+.seccion1-1 p{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 1.6rem;
+}
+.seccion1-1 img{
+    margin-top: 70px;
+    width: 400px;
+}
+
+.seccion1-2 {
+    margin: auto;
+    margin-top: 20px;
+    height: 80px;
+    width: 350px;
+    border-radius: 30px;
+    background-color: var(--color4);
+}
+
+.seccion1-2 p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 80px;
+    text-align: center;
+    font-family: 'Bruno Ace SC', cursive;
+    cursor: default;
+    font-weight: 400;
+}
+
+.seccion1-3 {
+    height: 399px;
+}
+
+.seccion1-3 img {
+    width: 500px;
+    margin: 80px 0 0 60px;
+}
+
+/* seccion 2 */
+.seccion2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.562);
+    height: 550px;
+}
+/* opciones del dasboard(actualizar, eliminar etc) */
+    /* sombra con degradado */
+/* Efecto de sombra con degradado alrededor de las formas */
+.form1,
+.form2 {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    transition: box-shadow 0.4s ease;
+}
+
+/* Sombras alrededor de las formas */
+.form1,
+.form2,.form3,.form4{
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    bottom: -6px;
+    left: -6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.767);
+    z-index: -1;
+}
+
+/* Cambio de sombra al pasar el cursor por encima de las formas */
+.form1:hover,
+.form2:hover {
+    box-shadow:0 8px 19px #ff293781;
+}
+    /* fin */
+
+
+
+    /* imagen adentro de forms */
+    .forms img{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        left:15vh;
+        top: 30vh;
+        z-index: 0;
+    }
+    /* fin imagen */
+.forms{
+    position:absolute;
+    width:100%;
+    height: 100%;
+    text-align: center;
+    z-index: -1;
+}
+/* opciones de agregar */
+.form1{
+    margin: auto;
+    margin-top: 100px;
+    margin-left: 400px;
+    width: 800px;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+.form1 img{
+    position:fixed;
+    width: 100px;
+    left: 295px;
+}
+.form1 h1{
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    padding-top: 30px;
+    color: #E74646;
+}
+
+.form1 div{
+    display:inline-block;
+    width: 300px;
+    margin: 20px;
+    margin-top: 40px;
+}
+.form1 label{
+    width: 20px;
+    font-size: 1.6rem;
+    color: var(--color3);
+}
+/* los input text en la form ceran remplazados con textbos en c# */
+.form1 input[type="text"]{
+    width: 200px;
+    margin-left: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(112, 112, 112);
+    outline: none;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+}
+.form1 input[type="radio"]{
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.form1 input[type="submit"]{
+    width: 150px;
+    font-size: 1.5rem;
+    padding: 5px;   
+    margin-left: 10px;
+    background-color: #ffffff;
+    border: 1px solid var(--color7);
+    color: #E74646;
+}
+.form1 input[type ="submit"]:hover{
+    background-color: #0E8388;
+    color: white    ;
+}
+
+/* opciones de agregar */
+.form2{
+    margin: auto;
+    margin-top: 100px;
+    margin-left: 400px;
+    width: 800px;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+.form2 img{
+    position:fixed;
+    width: 100px;
+    left: 295px;
+}
+.form2 h1{
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    padding-top: 30px;
+    color: #E74646;
+}
+
+.form2 div{
+    display:inline-block;
+    width: 300px;
+    margin: 20px;
+    margin-top: 40px;
+}
+.form2 label{
+    width: 20px;
+    font-size: 1.6rem;
+    color: var(--color3);
+}
+/* los input text en la form ceran remplazados con textbos en c# */
+.form2 input[type="text"]{
+    width: 200px;
+    margin-left: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(112, 112, 112);
+    outline: none;
+    padding-bottom: 5px;
+    background-color: #ffffff   ;
+}
+.form2 input[type="radio"]{
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.form2 input[type="submit"]{
+    width: 150px;
+    font-size: 1.5rem;
+    padding: 5px;   
+    margin-left: 10px;
+    background-color: #ffffff;
+    border: 1px solid var(--color7);
+    color:#E74646;
+}
+.form2 input[type ="submit"]:hover{
+    background-color: #0E8388;
+    color: white;
+}
+/* opciones de eliminar */
+.form3{
+    margin: auto;
+    margin-top: 100px;
+    margin-left: 400px;
+    width: 800px;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+.form3 img{
+    position:fixed;
+    width: 100px;
+    left: 295px;
+}
+.form3 h1{
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    padding-top: 30px;
+    color: #E74646;
+}
+
+.form3 div{
+    display:inline-block;
+    width: 300px;
+    margin: 20px;
+    margin-top: 40px;
+}
+.form3 label{
+    width: 20px;
+    font-size: 1.6rem;
+    color: var(--color3);
+}
+/* los input text en la form ceran remplazados con textbos en c# */
+.form3 input[type="text"]{
+    width: 200px;
+    margin-left: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(112, 112, 112);
+    outline: none;
+    padding-bottom: 5px;
+    background-color: #ffffff   ;
+}
+.form3 input[type="radio"]{
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.form3 input[type="submit"]{
+    width: 150px;
+    font-size: 1.5rem;
+    padding: 5px;   
+    margin-left: 10px;
+    background-color: #ffffff;
+    border: 1px solid var(--color7);
+    color:#E74646;
+}
+.form3 input[type ="submit"]:hover{
+    background-color: #0E8388;
+    color: white;
+}

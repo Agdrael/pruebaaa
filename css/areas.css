@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+header {
+    background-color: gray;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+form {
+    display: none;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+/* Estilos para los botones en el nav */
+nav button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Estilos para los formularios y botones dentro de ellos */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #eb1d36; /* Rojo oscuro */
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #fa9484; /* Borde Durazno claro */
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #fa9494; /* Rojo pastel */
+    color: white;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049; /* Verde pastel más oscuro al pasar el ratón */
+}
+
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Estilos para las imágenes en el formulario */
+form img {
+    max-width: 100%;
+    height: auto;
+}

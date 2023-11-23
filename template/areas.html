@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Áreas</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/menulateral.css">
+    <link rel="stylesheet" href="../css/contenidoinicio.css">
+    <link rel="stylesheet" href="../css/areas.css">
+    <link rel="stylesheet" href="../css/formulario.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: gray;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            display: none;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        
+        <h1>Administrador de Áreas</h1>
+        <img src="../imagenes/descarga.png" alt="Logo" style="max-width: 100%; height: auto;">
+    </header>
+
+    <nav>
+        <button onclick="showForm('agregar')">Agregar Área</button>
+        <button onclick="showForm('eliminar')">Eliminar Área</button>
+        <button onclick="showForm('ver')">Ver Áreas</button>
+        <button onclick="showForm('actualizar')">Actualizar Área</button>
+    </nav>
+
+    <section>
+        <form id="form_agregar">
+            <label for="nombre_agregar">Nombre del Área:</label>
+            <input type="text" id="nombre_agregar" name="nombre_agregar" required>
+            <button type="submit">Agregar</button>
+
+            <!-- Sección para mostrar áreas existentes y no existentes -->
+            <div>
+                <button type="button" onclick="mostrarAreas('agregar')">Mostrar Áreas</button>
+                <table id="tabla_areas_agregar"></table>
+            </div>
+        </form>
+
+        <form id="form_eliminar">
+            <label for="codigo_eliminar">Código del Área a Eliminar:</label>
+            <input type="text" id="codigo_eliminar" name="codigo_eliminar" required>
+            <button type="submit">Eliminar</button>
+
+            <!-- Sección para mostrar áreas existentes y no existentes -->
+            <div>
+                <button type="button" onclick="mostrarAreas('eliminar')">Mostrar Áreas</button>
+                <table id="tabla_areas_eliminar"></table>
+            </div>
+        </form>
+
+        <form id="form_ver">
+            <!-- Sección para mostrar áreas existentes y no existentes -->
+            <div>
+                <button type="button" onclick="mostrarAreas('ver')">Mostrar Áreas</button>
+                <table id="tabla_areas_ver"></table>
+            </div>
+        </form>
+
+        <form id="form_actualizar">
+            <label for="codigo_actualizar">Código del Área a Actualizar:</label>
+            <input type="text" id="codigo_actualizar" name="codigo_actualizar" required>
+            <label for="nombre_actualizar">Nuevo Nombre:</label>
+            <input type="text" id="nombre_actualizar" name="nombre_actualizar" required>
+            <button type="submit">Actualizar</button>
+
+            <!-- Sección para mostrar áreas existentes y no existentes -->
+            <div>
+                <button type="button" onclick="mostrarAreas('actualizar')">Mostrar Áreas</button>
+                <table id="tabla_areas_actualizar"></table>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function showForm(formId) {
+            // Ocultar todos los formularios
+            document.querySelectorAll('form').forEach(form => form.style.display = 'none');
+
+            // Ocultar todas las tablas
+            document.querySelectorAll('table').forEach(table => table.style.display = 'none');
+
+            // Mostrar el formulario correspondiente al botón clickeado
+            document.getElementById(`form_${formId}`).style.display = 'block';
+        }
+
+        function mostrarAreas(formId) {
+            const tabla = document.getElementById(`tabla_areas_${formId}`);
+
+            const areasExist = [
+                { codigo: '001', nombre: 'Área 1' },
+                { codigo: '002', nombre: 'Área 2' },
+            ];
+
+            const areasNoExist = [
+                { codigo: '003', nombre: 'Área 3' },
+                { codigo: '004', nombre: 'Área 4' },
+            ];
+
+            // Limpiar la tabla antes de agregar datos
+            tabla.innerHTML = '';
+
+            // Agregar encabezados a la tabla
+            const headerRow = tabla.insertRow(0);
+            const headerCodigo = headerRow.insertCell(0);
+            const headerNombre = headerRow.insertCell(1);
+            headerCodigo.innerHTML = '<b>Código</b>';
+            headerNombre.innerHTML = '<b>Nombre</b>';
+
+            // Mostrar áreas existentes
+            areasExist.forEach(area => {
+                const row = tabla.insertRow(-1);
+                const cellCodigo = row.insertCell(0);
+                const cellNombre = row.insertCell(1);
+                cellCodigo.textContent = area.codigo;
+                cellNombre.textContent = area.nombre;
+            });
+
+            // Mostrar áreas no existentes
+            areasNoExist.forEach(area => {
+                const row = tabla.insertRow(-1);
+                const cellCodigo = row.insertCell(0);
+                const cellNombre = row.insertCell(1);
+                cellCodigo.textContent = area.codigo;
+                cellNombre.textContent = area.nombre;
+            });
+
+            // Mostrar la tabla
+            tabla.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
