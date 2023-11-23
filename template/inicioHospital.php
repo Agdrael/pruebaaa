@@ -68,12 +68,12 @@
     <section class="forms">
         <img src="../imagenes/descarga.png" alt="">
         <!-- opción de agregar -->
-        <form action="" class="form1 card" data-content id="agregar">
+        <form action="" method="post" class="form1 card" data-content id="agregar">
             <h1>Datos</h1>
 
             <div>
                 <label for="">Nombre:</label>
-                <input type="text">
+                <input name="nombre" type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
@@ -104,7 +104,7 @@
                 <input type="text">
             </div>
             <div>
-                <input type="submit" value="Agregar">
+                <input name="btnagregar"type="submit" value="Agregar">
             </div>
 
         </form>
