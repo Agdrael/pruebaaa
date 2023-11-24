@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/menulateral.css">
     <link rel="stylesheet" href="../css/contenidoinicio.css">
     <!-- java -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../java/change.js"></script>
 </head>
 
@@ -68,21 +69,23 @@
     <section class="forms">
         <img src="../imagenes/descarga.png" alt="">
         <!-- opción de agregar -->
+        <?php 
+            include("../php/conexion_bd.php");
+            include("../php/controlador.php");
+        ?>
         <form action="" method="post" class="form1 card" data-content id="agregar">
             <h1>Datos</h1>
-
             <div>
                 <label for="">Nombre:</label>
                 <input name="nombre" type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input type="text">
+                <input name ="apellido" type="text">
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <!-- los inputs text serán reemplazados con textbox en C# -->
-                <input type="text">
+                <input name= "carnet" type="text">
             </div>
             <div>
                 <label for="">Sexo:</label>
@@ -93,15 +96,15 @@
             </div>
             <div>
                 <label for="">Dui:</label>
-                <input type="text">
+                <input name="dui" type="text" >
             </div>
             <div>
                 <label for="">Motivo:</label>
-                <input type="text">
+                <input name="motivo"type="textarea">
             </div>
             <div>
                 <label for="">Dirección:</label>
-                <input type="text">
+                <input name="direccion" type="text">
             </div>
             <div>
                 <input name="btnagregar"type="submit" value="Agregar">
@@ -112,43 +115,50 @@
         <!-- form para actualizar (aun en trabajo)= -->
         <form action="" class="form2" data-content id="actualizar">
             <h1>Actualizar</h1>
+            <div>
+                <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
+                <select id="duiSelect" onchange="cargarInfo()">
+                    <?php
+                        $sql = "SELECT dui FROM pacientes";
+                        $result =$conexion->query($sql);
 
-            <div>
-                <label for="">Nombre:</label>
-                <input type="text">
+                        if($result->num_rows > 0)
+                        {
+                            while($row = $result->fetch_assoc())
+                            {
+                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+            <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
             </div>
             <div>
-                <label for="">Apellido:</label>
-                <input type="text">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
             </div>
             <div>
-                <label for="">Carnet:</label>
+                <label for="carnet">Carnet:</label>
                 <!-- los inputs text serán reemplazados con textbox en C# -->
-                <input type="text">
+                <input type="text" id="carnet" name="carnet">
             </div>
             <div>
-                <label for="">Sexo:</label>
-                <input type="radio" name="M" id="" value="Maculino">
-                <label for="">Masculino</label>
-                <input type="radio" name="M" id="" value="Femenino">
-                <label for="">Femenino</label>
+                <label for="dui">Dui:</label>
+                <input type="text" id="dui" name="dui">
             </div>
             <div>
-                <label for="">Dui:</label>
-                <input type="text">
+                <label for="motivo">Motivo:</label>
+                <input type="text" id="motivo" name ="motivo">
             </div>
             <div>
-                <label for="">Motivo:</label>
-                <input type="text">
-            </div>
-            <div>
-                <label for="">Dirección:</label>
-                <input type="text">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
             </div>
             <div>
                 <input type="submit" value="actualizar">
             </div>
-
         </form>
         <!-- fin form actualizar -->
         <!-- form para eliminar paciente -->
@@ -184,6 +194,27 @@
         <!-- fin form Eliminar -->
         <!-- código JavaScript para hacer menú desplegable con tabs -->
         <script>
+            function cargarInfo() 
+            {
+                var select = document.getElementById("duiSelect");
+                var selectedDui = select.options[select.selectedIndex].value;
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "../php/obtener_info.php",
+                    data: { dui: selectedDui },
+                    success: function (data)
+                    {
+                        var paciente = JSON.parse(data);
+                        document.getElementById("nombre").value = paciente.nombre;
+                        document.getElementById("apellido").value = paciente.apellido;
+                        document.getElementById("carnet").value = paciente.Carnet;
+                        document.getElementById("dui").value = paciente.dui;
+                        document.getElementById("direccion").value = paciente.direccion;
+                        document.getElementById("motivo").value = paciente.motivo;
+                    }   
+                });
+            }
         </script>
 </body>
 
