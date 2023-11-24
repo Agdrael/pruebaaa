@@ -45,7 +45,6 @@
                 </tr>
                 <tr>
                     <td colspan="2"><span class="toggle-modal" onclick="toggleForm()">¿No tienes una cuenta?</span></td>
-@@ -43,7 +44,7 @@
         </div>
     </form>
     <!-- Formulario de registro de cuenta -->
