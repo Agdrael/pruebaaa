@@ -112,7 +112,7 @@
         </form>
         <!-- fin de opción agregar -->
         <!-- form para actualizar (aun en trabajo)= -->
-        <form action="" method="post" class="form2" data-content id="actualizar">
+        <form action="" class="form2" data-content id="actualizar">
             <h1>Actualizar</h1>
             <div>
                 <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
@@ -156,77 +156,43 @@
                 <input type="text" id="direccion" name="direccion">
             </div>
             <div>
-                <input name="actPaciente"type="submit" value="actualizar">
+                <input type="submit" value="actualizar">
             </div>
         </form>
         <!-- fin form actualizar -->
         <!-- form para eliminar paciente -->
-        <form action="" method="post" class="form3" data-content id="eliminar">
+        <form action="" class="form3" data-content id="eliminar">
             <h1>Eliminar</h1>
-            <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
-                <select id="duiSelectdelete" onchange="cargarInfoDelete()">
-                    <?php
-                        $sql = "SELECT dui FROM pacientes";
-                        $result =$conexion->query($sql);
 
-                        if($result->num_rows > 0)
-                        {
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
-                            }
-                        }
-                    ?>
             <div>
                 <label for="">Nombre:</label>
-                <input type="text" name="nombreeliminar" id="nombreeliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input type="text" name="apellidoelimnar" id="apellidoelimnar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Carnet:</label>
                 <!-- los inputs text serán reemplazados con textbox en C# -->
-                <input type="text" name="carneteliminar" id="carneteliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Dui:</label>
-                <input type="text" name="duieliminar" id="duieliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Motivo:</label>
-                <input type="text" name="motivoeliminar" id="motivoeliminar">
+                <input type="text">
             </div>
             <div>
-                <input name="eliPaciente" type="submit" value="eliminar">
+                <input type="submit" value="eliminar">
             </div>
 
         </form>
         <!-- fin form Eliminar -->
         <!-- código JavaScript para hacer menú desplegable con tabs -->
         <script>
-            function cargarInfoDelete() 
-            {
-                var select = document.getElementById("duiSelectdelete");
-                var selectedDui = select.options[select.selectedIndex].value;
-                $.ajax
-                ({
-                    type: "POST",
-                    url: "../php/obtener_info.php",
-                    data: { dui: selectedDui },
-                    success: function (data)
-                    {
-                        var paciente = JSON.parse(data);
-                        document.getElementById("nombreeliminar").value = paciente.nombre;
-                        document.getElementById("apellidoelimnar").value = paciente.apellido;
-                        document.getElementById("carneteliminar").value = paciente.Carnet;
-                        document.getElementById("duieliminar").value = paciente.dui;
-                        document.getElementById("motivoeliminar").value = paciente.motivo;
-                    }   
-                });
-            }
-
             function cargarInfo() 
             {
                 var select = document.getElementById("duiSelect");
