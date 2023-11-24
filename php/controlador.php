@@ -122,4 +122,83 @@ if(!empty($_POST["btnagregar"]))
     } 
 }
 
+//actualizar paciente
+if(!empty($_POST["actPaciente"]))
+{
+    if(empty($_POST["nombre"]) and empty($_POST["apellido"]) and empty($_POST["carnet"])  and empty($_POST["dui"]) and empty($_POST["motivo"]) and empty($_POST["direccion"]))
+    {
+        echo '
+        <script>
+            alert("Campos vacios");
+        </script>
+    
+        ';
+    }
+    else
+    {
+        $nombre =$_POST["nombre"];
+        $apellido =$_POST["apellido"];
+        $carnet = $_POST["carnet"];
+        $dui= $_POST["dui"];
+        $motivo= $_POST["motivo"];
+        $direccion= $_POST["direccion"];
+        $sql= $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', Carnet = '$carnet', motivo = '$motivo', direccion = '$direccion' WHERE dui = '$dui'");
+        if($sql)
+        {
+            echo '
+        <script>
+            alert("Campos actualizados");
+        </script>
+    
+        ';
+        }
+        else
+        {
+            echo '
+            <script>
+                alert("Campos actualizacion fallida");
+            </script>
+        
+            ';  
+        }
+
+    }
+}
+
+if(!empty($_POST["eliPaciente"]))
+{
+    if(empty($_POST["nombreeliminar"]) and empty($_POST["apellidoelimnar"]) and empty($_POST["carneteliminar"])  and empty($_POST["duieliminar"]) and empty($_POST["motivoeliminar"]))
+    {
+        echo '
+        <script>
+            alert("Campos vacios");
+        </script>
+    
+        ';
+    }
+    else
+    {
+        $dui= $_POST["duieliminar"];
+        $sql= $conexion->query("DELETE FROM pacientes WHERE dui = '$dui'");
+        if($sql)
+        {
+            echo '
+        <script>
+            alert("Paciente eliminado");
+        </script>
+    
+        ';
+        }
+        else
+        {
+            echo '
+            <script>
+                alert("Eliminacion fallida");
+            </script>
+        
+            ';  
+        }
+
+    }
+}
 ?>
