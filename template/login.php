@@ -7,12 +7,8 @@
     <title>Sistema de Hospital</title>
 </head>
 <body>
-<?php 
-    include("../php/conexion_bd.php");
-    include("../php/controlador.php");
-?>
     <!-- Formulario de inicio de sesión -->
-    <form method="post" id="loginForm" class="active-form">
+    <form id="loginForm" class="active-form">
         <div class="container">
             <table class="login-table">
                 <!-- Contenido de la tabla de inicio de sesión -->
@@ -34,8 +30,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input name="btningresar" type="submit" value="Iniciar Sesión"></td>
-                   
+                    <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
+                    <?php 
+                    include("../php/conexion_bd.php");
+                    include("../php/controlador.php");
+                ?>
                 </tr>
                 <tr>
                     <td colspan="2"><span class="toggle-modal" onclick="toggleForm()">¿No tienes una cuenta?</span></td>
@@ -44,7 +43,7 @@
         </div>
     </form>
     <!-- Formulario de registro de cuenta -->
-    <form method="post" id="registroForm" class="hidden-form">
+    <form id="registroForm" class="hidden-form">
         <div class="container">
             <table class="login-table">
                 <!-- Contenido de la tabla de registro de cuenta -->
@@ -66,7 +65,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input name="btncrear" type="submit" value="Registrar Usuario"></td>
+                    <td colspan="2"><input type="submit" value="Registrar Usuario"></td>
                 </tr>
             </table>
         </div>
