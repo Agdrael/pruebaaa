@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../java/change.js"></script>
 </head>
-
 <body>
-
     <header class="header">
         <div class="container">
             <div class="btn-menu">
@@ -34,6 +31,7 @@
                 <a href="#agregar">Agregar paciente</a>
                 <a href="#actualizar">Actualizar paciente</a>
                 <a href="#eliminar">Eliminar paciente</a>
+                <a href="#buscar">Buscar paciente</a>
             </nav>
         </div>
     </header>
@@ -45,7 +43,6 @@
             <nav class="imagenLateral">
                 <img src="../imagenes/descarga.png" alt="">
             </nav>
-
             <nav>
                 <a href="inicioHospital.html" class="items-links"><img src="../imagenes/home-white.png" alt="">Inicio</a>
                 <a href="#" class="items-links"><img src="../imagenes/doctor-white.png" alt="">Doctores</a>
@@ -62,7 +59,6 @@
         </div>
     </div>
     <div class="separador"></div>
-
     <div class="espacio"></div>
     <!-- opciones del dashboard (actualizar, eliminar, etc.) -->
     <section class="forms">
@@ -108,11 +104,11 @@
             <div>
                 <input name="btnagregar"type="submit" value="Agregar">
             </div>
-
         </form>
         <!-- fin de opción agregar -->
         <!-- form para actualizar (aun en trabajo)= -->
         <form action="" class="form2" data-content id="actualizar">
+        <form action="" method="post" class="form2" data-content id="actualizar">
             <h1>Actualizar</h1>
             <div>
                 <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
@@ -120,7 +116,6 @@
                     <?php
                         $sql = "SELECT dui FROM pacientes";
                         $result =$conexion->query($sql);
-
                         if($result->num_rows > 0)
                         {
                             while($row = $result->fetch_assoc())
@@ -157,42 +152,84 @@
             </div>
             <div>
                 <input type="submit" value="actualizar">
+                <input name="actPaciente"type="submit" value="actualizar">
             </div>
         </form>
         <!-- fin form actualizar -->
         <!-- form para eliminar paciente -->
         <form action="" class="form3" data-content id="eliminar">
+        <form action="" method="post" class="form3" data-content id="eliminar">
             <h1>Eliminar</h1>
+            <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
+                <select id="duiSelectdelete" onchange="cargarInfoDelete()">
+                    <?php
+                        $sql = "SELECT dui FROM pacientes";
+                        $result =$conexion->query($sql);
 
+                        if($result->num_rows > 0)
+                        {
+                            while($row = $result->fetch_assoc())
+                            {
+                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
+                            }
+                        }
+                    ?>
             <div>
                 <label for="">Nombre:</label>
                 <input type="text">
+                <input type="text" name="nombreeliminar" id="nombreeliminar">
             </div>
             <div>
                 <label for="">Apellido:</label>
                 <input type="text">
+                <input type="text" name="apellidoelimnar" id="apellidoelimnar">
             </div>
             <div>
                 <label for="">Carnet:</label>
                 <!-- los inputs text serán reemplazados con textbox en C# -->
                 <input type="text">
+                <input type="text" name="carneteliminar" id="carneteliminar">
             </div>
             <div>
                 <label for="">Dui:</label>
                 <input type="text">
+                <input type="text" name="duieliminar" id="duieliminar">
             </div>
             <div>
                 <label for="">Motivo:</label>
                 <input type="text">
+                <input type="text" name="motivoeliminar" id="motivoeliminar">
             </div>
             <div>
                 <input type="submit" value="eliminar">
+                <input name="eliPaciente" type="submit" value="eliminar">
             </div>
 
         </form>
         <!-- fin form Eliminar -->
         <!-- código JavaScript para hacer menú desplegable con tabs -->
         <script>
+            function cargarInfoDelete() 
+            {
+                var select = document.getElementById("duiSelectdelete");
+                var selectedDui = select.options[select.selectedIndex].value;
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "../php/obtener_info.php",
+                    data: { dui: selectedDui },
+                    success: function (data)
+                    {
+                        var paciente = JSON.parse(data);
+                        document.getElementById("nombreeliminar").value = paciente.nombre;
+                        document.getElementById("apellidoelimnar").value = paciente.apellido;
+                        document.getElementById("carneteliminar").value = paciente.Carnet;
+                        document.getElementById("duieliminar").value = paciente.dui;
+                        document.getElementById("motivoeliminar").value = paciente.motivo;
+                    }   
+                });
+            }
+
             function cargarInfo() 
             {
                 var select = document.getElementById("duiSelect");
@@ -216,5 +253,4 @@
             }
         </script>
 </body>
-
 </html>

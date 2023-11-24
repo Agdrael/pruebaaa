@@ -9,6 +9,7 @@
 <body>
     <!-- Formulario de inicio de sesión -->
     <form id="loginForm" class="active-form">
+    <form method="post" id="loginForm" class="active-form">
         <div class="container">
             <table class="login-table">
                 <!-- Contenido de la tabla de inicio de sesión -->
@@ -30,7 +31,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
+                <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
                     <?php 
                     include("../php/conexion_bd.php");
                     include("../php/controlador.php");
@@ -43,7 +44,7 @@
         </div>
     </form>
     <!-- Formulario de registro de cuenta -->
-    <form id="registroForm" class="hidden-form">
+    <form method="post" id="registroForm" class="hidden-form">
         <div class="container">
             <table class="login-table">
                 <!-- Contenido de la tabla de registro de cuenta -->
