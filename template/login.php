@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
     <title>Sistema de Hospital</title>
 </head>
-
 <body>
     <!-- Formulario de inicio de sesión -->
-    <form method="post" id="loginForm" class="active-form">
+    <form id="loginForm" class="active-form">
         <div class="container">
             <table class="login-table">
+                <!-- Contenido de la tabla de inicio de sesión -->
                 <tr>
                     <td colspan="2"><img src="../imagenes2/Hospital Divina providencia.gif" height="300" alt="Logo de Iniciar Sesión"></td>
                 </tr>
@@ -31,11 +30,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input name="btningresar" type="submit" value="Iniciar Sesión"></td>
+                    <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
                     <?php 
-                        include("../php/conexion_bd.php");
-                        include("../php/controlador.php");
-                    ?>
+                    include("../php/conexion_bd.php");
+                    include("../php/controlador.php");
+                ?>
                 </tr>
                 <tr>
                     <td colspan="2"><span class="toggle-modal" onclick="toggleForm()">¿No tienes una cuenta?</span></td>
@@ -43,11 +42,11 @@
             </table>
         </div>
     </form>
-
     <!-- Formulario de registro de cuenta -->
-    <form method="post" id="registroForm" class="hidden-form">
+    <form id="registroForm" class="hidden-form">
         <div class="container">
             <table class="login-table">
+                <!-- Contenido de la tabla de registro de cuenta -->
                 <tr>
                     <td colspan="2"><img src="../imagenes2/Hospital Divina providencia.gif" height="300" alt="Logo de Registro"></td>
                 </tr>
@@ -71,7 +70,6 @@
             </table>
         </div>
     </form>
-
     <script>
         function togglePassword(inputId) {
             var passwordInput = document.getElementById(inputId);
@@ -90,5 +88,4 @@
         }
     </script>
 </body>
-
 </html>

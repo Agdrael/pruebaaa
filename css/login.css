@@ -44,11 +44,15 @@ input {
     outline: none;
 }
 
+span {
+    cursor: pointer;
+}
+
 input[type="submit"] {
     background-color: #E74646;
     color: white;
     cursor: pointer;
-    margin-top:10px ;
+    margin-top: 10px;
 }
 
 input[type="submit"]:hover {
@@ -66,6 +70,7 @@ input[type="checkbox"] {
     margin-top: 5px;
     text-decoration: underline;
 }
+
 /* Añade estilos para la ventana modal */
 .modal {
     display: none;
@@ -106,9 +111,19 @@ input[type="checkbox"] {
     color: #a50f2f;
 }
 
-/* Agrega estilos para centrar la ventana modal en dispositivos pequeños */
 @media screen and (max-width: 600px) {
     .modal-content {
         width: 80%;
     }
+}
+
+.active-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.hidden-form {
+    display: none;
 }
