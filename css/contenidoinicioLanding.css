@@ -382,37 +382,3 @@ width: 50px;
     font-size: 1.6rem;
     color: var(--color3);
 }
-/* form 5 */
-.form5{
-    margin: auto;
-    margin-top: 100px;
-    margin-left: 400px;
-    width: 800px;
-    height: 500px;
-    background-color: #ffffff;
-}
-
-.form5 img{
-    position:fixed;
-    width: 100px;
-    left: 295px;
-}
-.form5 h1{
-    font-weight: 400;
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.4rem;
-    padding-top: 30px;
-    color: #E74646;
-}
-
-.form5 div{
-    display:inline-block;
-    width: 300px;
-    margin: 20px;
-    margin-top: 40px;
-}
-.form5 label{
-    width: 20px;
-    font-size: 1.6rem;
-    color: var(--color3);
-}

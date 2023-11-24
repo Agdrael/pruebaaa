@@ -34,7 +34,6 @@
                 <a href="#agregar">Agregar paciente</a>
                 <a href="#actualizar">Actualizar paciente</a>
                 <a href="#eliminar">Eliminar paciente</a>
-                <a href="#buscar">Buscar paciente</a>
             </nav>
         </div>
     </header>
