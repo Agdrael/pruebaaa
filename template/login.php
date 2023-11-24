@@ -7,6 +7,10 @@
     <title>Sistema de Hospital</title>
 </head>
 <body>
+<?php 
+    include("../php/conexion_bd.php");
+    include("../php/controlador.php");
+?>
     <!-- Formulario de inicio de sesión -->
     <form id="loginForm" class="active-form">
     <form method="post" id="loginForm" class="active-form">
@@ -31,19 +35,21 @@
                     </td>
                 </tr>
                 <tr>
-                <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
+                    <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
                     <?php 
                     include("../php/conexion_bd.php");
                     include("../php/controlador.php");
                 ?>
+                    <td colspan="2"><input name="btningresar" type="submit" value="Iniciar Sesión"></td>
+
                 </tr>
                 <tr>
                     <td colspan="2"><span class="toggle-modal" onclick="toggleForm()">¿No tienes una cuenta?</span></td>
-                </tr>
-            </table>
+@@ -43,7 +44,7 @@
         </div>
     </form>
     <!-- Formulario de registro de cuenta -->
+    <form id="registroForm" class="hidden-form">
     <form method="post" id="registroForm" class="hidden-form">
         <div class="container">
             <table class="login-table">
@@ -67,6 +73,7 @@
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Registrar Usuario"></td>
+                    <td colspan="2"><input name="btncrear" type="submit" value="Registrar Usuario"></td>
                 </tr>
             </table>
         </div>
@@ -77,11 +84,9 @@
             var type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
             passwordInput.setAttribute("type", type);
         }
-
         function toggleForm() {
             var loginForm = document.getElementById("loginForm");
             var registroForm = document.getElementById("registroForm");
-
             loginForm.classList.toggle("hidden-form");
             loginForm.classList.toggle("active-form");
             registroForm.classList.toggle("hidden-form");
