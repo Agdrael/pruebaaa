@@ -31,7 +31,6 @@
                 <a href="#agregar">Agregar paciente</a>
                 <a href="#actualizar">Actualizar paciente</a>
                 <a href="#eliminar">Eliminar paciente</a>
-                <a href="#buscar">Buscar paciente</a>
             </nav>
         </div>
     </header>
@@ -107,8 +106,8 @@
         </form>
         <!-- fin de opción agregar -->
         <!-- form para actualizar (aun en trabajo)= -->
-        <form action="" class="form2" data-content id="actualizar">
         <form action="" method="post" class="form2" data-content id="actualizar">
+        <form action="" class="form2" data-content id="actualizar">
             <h1>Actualizar</h1>
             <div>
                 <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
@@ -151,14 +150,14 @@
                 <input type="text" id="direccion" name="direccion">
             </div>
             <div>
-                <input type="submit" value="actualizar">
                 <input name="actPaciente"type="submit" value="actualizar">
+                <input type="submit" value="actualizar">
             </div>
         </form>
         <!-- fin form actualizar -->
         <!-- form para eliminar paciente -->
-        <form action="" class="form3" data-content id="eliminar">
         <form action="" method="post" class="form3" data-content id="eliminar">
+        <form action="" class="form3" data-content id="eliminar">
             <h1>Eliminar</h1>
             <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
                 <select id="duiSelectdelete" onchange="cargarInfoDelete()">
@@ -176,32 +175,33 @@
                     ?>
             <div>
                 <label for="">Nombre:</label>
-                <input type="text">
                 <input type="text" name="nombreeliminar" id="nombreeliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input type="text">
                 <input type="text" name="apellidoelimnar" id="apellidoelimnar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <input type="text">
+                <!-- los inputs text serán reemplazados con textbox en C# -->
                 <input type="text" name="carneteliminar" id="carneteliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Dui:</label>
-                <input type="text">
                 <input type="text" name="duieliminar" id="duieliminar">
+                <input type="text">
             </div>
             <div>
                 <label for="">Motivo:</label>
-                <input type="text">
                 <input type="text" name="motivoeliminar" id="motivoeliminar">
+                <input type="text">
             </div>
             <div>
-                <input type="submit" value="eliminar">
                 <input name="eliPaciente" type="submit" value="eliminar">
+                <input type="submit" value="eliminar">
             </div>
 
         </form>
