@@ -186,7 +186,6 @@
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <!-- los inputs text serán reemplazados con textbox en C# -->
                 <input type="text">
                 <input type="text" name="carneteliminar" id="carneteliminar">
             </div>
