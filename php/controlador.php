@@ -20,7 +20,7 @@ if(!empty($_POST["btningresar"]))
         $sql = $conexion->query("SELECT * FROM usuarios WHERE usuario='$usuario' and contra = '$clave'");
         if($datos=$sql->fetch_object())
         {
-            header("location: ../template/inicioHospital.html");
+            header("location: ../template/inicioHospital.php");
         }
         else
         {
@@ -80,6 +80,46 @@ if(!empty($_POST["btncrear"]))
 //crear paciente
 if(!empty($_POST["btnagregar"]))
 {
+    if(empty($_POST["nombre"]) and empty($_POST["apellido"]) and empty($_POST["carnet"]) and empty($_POST["M"]) and empty($_POST["dui"]) and empty($_POST["motivo"]) and empty($_POST["direccion"]))
+    {
+        echo '
+        <script>
+            alert("Campos vacios");
+        </script>
+    
+        ';
+    }
+    else
+    {
+        $nombre =$_POST["nombre"];
+        $apellido =$_POST["apellido"];
+        $carnet = $_POST["carnet"];
+        $sexo= $_POST["M"];
+        $dui= $_POST["dui"];
+        $motivo= $_POST["motivo"];
+        $direccion= $_POST["direccion"];
+        $sql = $conexion->query("INSERT INTO pacientes (nombre,apellido,Carnet,dui,direccion,motivo) VALUES ('$nombre','$apellido','$carnet','$dui','$direccion','$motivo')");
+        if($sql)
+        {
 
+            // aqui hechate el arte para hacerlo bonito xd
+            echo '
+            <script>
+                alert("Usuario creado exitosamente");
+            </script>
+            ';
+        }
+        else
+        {
+            // aqui hechate el arte para hacerlo bonito xd
+            echo '
+                <script>
+                    alert("Error: Paciente no creado");
+                </script>
+            
+            ';
+        }
+    } 
 }
+
 ?>
