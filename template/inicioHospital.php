@@ -43,15 +43,14 @@
                 <img src="../imagenes/descarga.png" alt="">
             </nav>
             <nav>
-                <a href="inicioHospital.html" class="items-links"><img src="../imagenes/home-white.png" alt="">Inicio</a>
                 <a href="#" class="items-links"><img src="../imagenes/doctor-white.png" alt="">Doctores</a>
                 <a href="#" class="items-links"><img src="../imagenes/nurse-white.png" alt="">Enfermeras</a>
-                <a href="AgendarCita.html" class="items-links"><img src="../imagenes/calendar-white.png" alt="">Agendar citas</a>
+                <a href="AgendarCita.php" class="items-links"><img src="../imagenes/calendar-white.png" alt="">Agendar citas</a>
                 <a href="areas.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Areas</a>
                 <a href="landing2.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Nosotros</a>
             </nav>
              <nav class="redes">
-                <a href="#">Cerrar sesión</a>
+                <a href="../index.html">Cerrar sesión</a>
            <!--      <a href="#">Salir</a> -->
             </nav>
             <label for="btn-menu">x</label>
@@ -125,6 +124,7 @@
                     ?>
                 </select>
             </div>
+            <div>
             <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre">
             </div>

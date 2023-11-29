@@ -165,6 +165,7 @@ if(!empty($_POST["actPaciente"]))
     }
 }
 
+//eliminar paciente
 if(!empty($_POST["eliPaciente"]))
 {
     if(empty($_POST["nombreeliminar"]) and empty($_POST["apellidoelimnar"]) and empty($_POST["carneteliminar"])  and empty($_POST["duieliminar"]) and empty($_POST["motivoeliminar"]))
