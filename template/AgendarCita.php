@@ -48,10 +48,10 @@
             </nav>
 
             <nav>
-                <a href="inicioHospital.php" class="items-links"><img src="../imagenes/home-white.png" alt="">Inicio</a>
                 <a href="#" class="items-links"><img src="../imagenes/doctor-white.png" alt="">Doctores</a>
                 <a href="#" class="items-links"><img src="../imagenes/nurse-white.png" alt="">Enfermeras</a>
                 <a href="areas.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Areas</a>
+                <a href="#" class="items-links"><img src="../imagenes/area-white.png" alt="">Nosotros</a>
             </nav>
              <nav class="redes">
                 <a href="../index.html">Cerrar sesión</a>

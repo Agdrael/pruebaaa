@@ -70,15 +70,15 @@
             <h1>Datos</h1>
             <div>
                 <label for="">Nombre:</label>
-                <input name="nombre" type="text">
+                <input name="nombre" type="text" placeholder="paciente..">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input name ="apellido" type="text">
+                <input name ="apellido" type="text" placeholder="apellido paciente..">
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <input name= "carnet" type="text">
+                <input name= "carnet" type="text" placeholder="1234-56">
             </div>
             <div>
                 <label for="">Sexo:</label>
@@ -89,25 +89,72 @@
             </div>
             <div>
                 <label for="">Dui:</label>
-                <input name="dui" type="text" >
+                <input name="dui" type="text" placeholder="00000000-1">
             </div>
             <div>
                 <label for="">Motivo:</label>
                 <input name="motivo"type="textarea">
+
             </div>
-            <div>
+            <div class="direccionlabel">
                 <label for="">Dirección:</label>
-                <input name="direccion" type="text">
+                <input name="direccion" type="text" placeholder="direccion....">
             </div>
             <div>
                 <input name="btnagregar"type="submit" value="Agregar">
             </div>
         </form>
         <!-- fin de opción agregar -->
-        <!-- form para actualizar (aun en trabajo)= -->
         <form action="" method="post" class="form2" data-content id="actualizar">
         <form action="" class="form2" data-content id="actualizar">
             <h1>Actualizar</h1>
+            <div class="duidiv">
+                <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
+                <select id="duiSelect" onchange="cargarInfo()">
+                    <?php
+                        $sql = "SELECT dui FROM pacientes";
+                        $result =$conexion->query($sql);
+                        if($result->num_rows > 0)
+                        {
+                            while($row = $result->fetch_assoc())
+                            {
+                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+            <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
+            </div>
+            <div>
+                <label for="carnet">Carnet:</label>
+                <input type="text" id="carnet" name="carnet">
+            </div>
+            <div>
+                <label for="dui">Dui:</label>
+                <input type="text" id="dui" name="dui">
+            </div>
+            <div>
+                <label for="motivo">Motivo:</label>
+                <input type="text" id="motivo" name ="motivo">
+            </div>
+            <div>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion">
+            </div>
+            <div>
+                <input name="actPaciente"type="submit" value="actualizar">
+            </div>
+        </form>
+        <!-- fin form actualizar -->
+        <!-- form para eliminar paciente -->
+        <form action="" method="post" class="form3" data-content id="eliminar">
+        <form action="" class="form3" data-content id="eliminar">
+            <h1>Eliminar</h1>
             <div>
                 <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
                 <select id="duiSelect" onchange="cargarInfo()">
@@ -125,83 +172,27 @@
                 </select>
             </div>
             <div>
-            <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-            </div>
-            <div>
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido">
-            </div>
-            <div>
-                <label for="carnet">Carnet:</label>
-                <!-- los inputs text serán reemplazados con textbox en C# -->
-                <input type="text" id="carnet" name="carnet">
-            </div>
-            <div>
-                <label for="dui">Dui:</label>
-                <input type="text" id="dui" name="dui">
-            </div>
-            <div>
-                <label for="motivo">Motivo:</label>
-                <input type="text" id="motivo" name ="motivo">
-            </div>
-            <div>
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion">
-            </div>
-            <div>
-                <input name="actPaciente"type="submit" value="actualizar">
-                <input type="submit" value="actualizar">
-            </div>
-        </form>
-        <!-- fin form actualizar -->
-        <!-- form para eliminar paciente -->
-        <form action="" method="post" class="form3" data-content id="eliminar">
-        <form action="" class="form3" data-content id="eliminar">
-            <h1>Eliminar</h1>
-            <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
-                <select id="duiSelectdelete" onchange="cargarInfoDelete()">
-                    <?php
-                        $sql = "SELECT dui FROM pacientes";
-                        $result =$conexion->query($sql);
-
-                        if($result->num_rows > 0)
-                        {
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
-                            }
-                        }
-                    ?>
-            <div>
                 <label for="">Nombre:</label>
                 <input type="text" name="nombreeliminar" id="nombreeliminar">
-                <input type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
                 <input type="text" name="apellidoelimnar" id="apellidoelimnar">
-                <input type="text">
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <!-- los inputs text serán reemplazados con textbox en C# -->
                 <input type="text" name="carneteliminar" id="carneteliminar">
-                <input type="text">
             </div>
             <div>
                 <label for="">Dui:</label>
                 <input type="text" name="duieliminar" id="duieliminar">
-                <input type="text">
             </div>
             <div>
                 <label for="">Motivo:</label>
                 <input type="text" name="motivoeliminar" id="motivoeliminar">
-                <input type="text">
             </div>
             <div>
                 <input name="eliPaciente" type="submit" value="eliminar">
-                <input type="submit" value="eliminar">
             </div>
 
         </form>
