@@ -1,5 +1,10 @@
+<?php
+include("../php/conexion_bd.php");
+include("../php/controlador.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../java/change.js"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -42,16 +48,13 @@
             <nav class="imagenLateral">
                 <img src="../imagenes/descarga.png" alt="">
             </nav>
-            <nav>
-                <a href="#" class="items-links"><img src="../imagenes/doctor-white.png" alt="">Doctores</a>
-                <a href="#" class="items-links"><img src="../imagenes/nurse-white.png" alt="">Enfermeras</a>
+            <nav style="padding-top: 40px;">
                 <a href="AgendarCita.php" class="items-links"><img src="../imagenes/calendar-white.png" alt="">Agendar citas</a>
-                <a href="areas.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Areas</a>
-                <a href="landing2.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Nosotros</a>
+                <a href="registro.php" class="items-link"><img src="../imagenes2/doctor-white.png" alt="">Editar citas</a>
             </nav>
-             <nav class="redes">
+            <nav class="redes">
                 <a href="../index.html">Cerrar sesión</a>
-           <!--      <a href="#">Salir</a> -->
+                <!--      <a href="#">Salir</a> -->
             </nav>
             <label for="btn-menu">x</label>
         </div>
@@ -62,10 +65,7 @@
     <section class="forms">
         <img src="../imagenes/descarga.png" alt="">
         <!-- opción de agregar -->
-        <?php 
-            include("../php/conexion_bd.php");
-            include("../php/controlador.php");
-        ?>
+
         <form action="" method="post" class="form1 card" data-content id="agregar">
             <h1>Datos</h1>
             <div>
@@ -74,11 +74,11 @@
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input name ="apellido" type="text" placeholder="apellido paciente..">
+                <input name="apellido" type="text" placeholder="apellido paciente..">
             </div>
             <div>
                 <label for="">Carnet:</label>
-                <input name= "carnet" type="text" placeholder="1234-56">
+                <input name="carnet" type="text" placeholder="1234-56">
             </div>
             <div>
                 <label for="">Sexo:</label>
@@ -93,7 +93,7 @@
             </div>
             <div>
                 <label for="">Motivo:</label>
-                <input name="motivo"type="textarea">
+                <input name="motivo" type="textarea">
 
             </div>
             <div class="direccionlabel">
@@ -101,146 +101,141 @@
                 <input name="direccion" type="text" placeholder="direccion....">
             </div>
             <div>
-                <input name="btnagregar"type="submit" value="Agregar">
+                <input name="btnagregar" type="submit" value="Agregar">
             </div>
         </form>
         <!-- fin de opción agregar -->
         <form action="" method="post" class="form2" data-content id="actualizar">
-        <form action="" class="form2" data-content id="actualizar">
-            <h1>Actualizar</h1>
-            <div class="duidiv">
-                <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
-                <select id="duiSelect" onchange="cargarInfo()">
-                    <?php
+            <form action="" class="form2" data-content id="actualizar">
+                <h1>Actualizar</h1>
+                <div class="duidiv">
+                    <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
+                    <select id="duiSelect" onchange="cargarInfo()">
+                        <?php
                         $sql = "SELECT dui FROM pacientes";
-                        $result =$conexion->query($sql);
-                        if($result->num_rows > 0)
-                        {
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
+                        $result = $conexion->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row['dui'] . "'>" . $row['dui'] . "</option>";
                             }
                         }
-                    ?>
-                </select>
-            </div>
-            <label for="nombre">Nombre:</label>
+                        ?>
+                    </select>
+                </div>
+                <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre">
-            <div>
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido">
-            </div>
-            <div>
-                <label for="carnet">Carnet:</label>
-                <input type="text" id="carnet" name="carnet">
-            </div>
-            <div>
-                <label for="dui">Dui:</label>
-                <input type="text" id="dui" name="dui">
-            </div>
-            <div>
-                <label for="motivo">Motivo:</label>
-                <input type="text" id="motivo" name ="motivo">
-            </div>
-            <div>
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion">
-            </div>
-            <div>
-                <input name="actPaciente"type="submit" value="actualizar">
-            </div>
-        </form>
-        <!-- fin form actualizar -->
-        <!-- form para eliminar paciente -->
-        <form action="" method="post" class="form3" data-content id="eliminar">
-        <form action="" class="form3" data-content id="eliminar">
-            <h1>Eliminar</h1>
-            <div>
-                <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
-                <select id="duiSelect" onchange="cargarInfo()">
-                    <?php
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido">
+                </div>
+                <div>
+                    <label for="carnet">Carnet:</label>
+                    <input type="text" id="carnet" name="carnet">
+                </div>
+                <div>
+                    <label for="dui">Dui:</label>
+                    <input type="text" id="dui" name="dui">
+                </div>
+                <div>
+                    <label for="motivo">Motivo:</label>
+                    <input type="text" id="motivo" name="motivo">
+                </div>
+                <div>
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion">
+                </div>
+                <div>
+                    <input name="actPaciente" type="submit" value="actualizar">
+                </div>
+            </form>
+            <!-- fin form actualizar -->
+            <!-- form para eliminar paciente -->
+            <form action="" method="post" class="form3" data-content id="eliminar">
+                <h1>Eliminar</h1>
+                <div>
+                    <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
+
+                    <select id="duiSelectDelete" onchange="cargarInfoDelete()">
+                        <?php
                         $sql = "SELECT dui FROM pacientes";
-                        $result =$conexion->query($sql);
-                        if($result->num_rows > 0)
-                        {
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
+                        $result = $conexion->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row['dui'] . "'>" . $row['dui'] . "</option>";
                             }
                         }
-                    ?>
-                </select>
-            </div>
-            <div>
-                <label for="">Nombre:</label>
-                <input type="text" name="nombreeliminar" id="nombreeliminar">
-            </div>
-            <div>
-                <label for="">Apellido:</label>
-                <input type="text" name="apellidoelimnar" id="apellidoelimnar">
-            </div>
-            <div>
-                <label for="">Carnet:</label>
-                <input type="text" name="carneteliminar" id="carneteliminar">
-            </div>
-            <div>
-                <label for="">Dui:</label>
-                <input type="text" name="duieliminar" id="duieliminar">
-            </div>
-            <div>
-                <label for="">Motivo:</label>
-                <input type="text" name="motivoeliminar" id="motivoeliminar">
-            </div>
-            <div>
-                <input name="eliPaciente" type="submit" value="eliminar">
-            </div>
+                        ?>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombreeliminar" id="nombreeliminar">
+                </div>
+                <div>
+                    <label for="">Apellido:</label>
+                    <input type="text" name="apellidoelimnar" id="apellidoelimnar">
+                </div>
+                <div>
+                    <label for="">Carnet:</label>
+                    <input type="text" name="carneteliminar" id="carneteliminar">
+                </div>
+                <div>
+                    <label for="">Dui:</label>
+                    <input type="text" name="duieliminar" id="duieliminar">
+                </div>
+                <div>
+                    <label for="">Motivo:</label>
+                    <input type="text" name="motivoeliminar" id="motivoeliminar">
+                </div>
+                <div>
+                    <input name="eliPaciente" type="submit" value="eliminar">
+                </div>
 
-        </form>
-        <!-- fin form Eliminar -->
-        <!-- código JavaScript para hacer menú desplegable con tabs -->
-        <script>
-            function cargarInfoDelete() 
-            {
-                var select = document.getElementById("duiSelectdelete");
-                var selectedDui = select.options[select.selectedIndex].value;
-                $.ajax
-                ({
-                    type: "POST",
-                    url: "../php/obtener_info.php",
-                    data: { dui: selectedDui },
-                    success: function (data)
-                    {
-                        var paciente = JSON.parse(data);
-                        document.getElementById("nombreeliminar").value = paciente.nombre;
-                        document.getElementById("apellidoelimnar").value = paciente.apellido;
-                        document.getElementById("carneteliminar").value = paciente.Carnet;
-                        document.getElementById("duieliminar").value = paciente.dui;
-                        document.getElementById("motivoeliminar").value = paciente.motivo;
-                    }   
-                });
-            }
+            </form>
+            <!-- fin form Eliminar -->
+            <!-- código JavaScript para hacer menú desplegable con tabs -->
+            <script>
+                function cargarInfoDelete() {
+                    var select = document.getElementById("duiSelectDelete");
+                    var selectedDui = select.options[select.selectedIndex].value;
+                    $.ajax({
+                        type: "POST",
+                        url: "../php/obtener_info.php",
+                        data: {
+                            dui: selectedDui
+                        },
+                        success: function(data) {
+                            var paciente = JSON.parse(data);
+                            document.getElementById("nombreeliminar").value = paciente.nombre;
+                            document.getElementById("apellidoelimnar").value = paciente.apellido;
+                            document.getElementById("carneteliminar").value = paciente.Carnet;
+                            document.getElementById("duieliminar").value = paciente.dui;
+                            document.getElementById("motivoeliminar").value = paciente.motivo;
+                        }
+                    });
+                }
 
-            function cargarInfo() 
-            {
-                var select = document.getElementById("duiSelect");
-                var selectedDui = select.options[select.selectedIndex].value;
-                $.ajax
-                ({
-                    type: "POST",
-                    url: "../php/obtener_info.php",
-                    data: { dui: selectedDui },
-                    success: function (data)
-                    {
-                        var paciente = JSON.parse(data);
-                        document.getElementById("nombre").value = paciente.nombre;
-                        document.getElementById("apellido").value = paciente.apellido;
-                        document.getElementById("carnet").value = paciente.Carnet;
-                        document.getElementById("dui").value = paciente.dui;
-                        document.getElementById("direccion").value = paciente.direccion;
-                        document.getElementById("motivo").value = paciente.motivo;
-                    }   
-                });
-            }
-        </script>
+                function cargarInfo() {
+                    var select = document.getElementById("duiSelect");
+                    var selectedDui = select.options[select.selectedIndex].value;
+                    $.ajax({
+                        type: "POST",
+                        url: "../php/obtener_info.php",
+                        data: {
+                            dui: selectedDui
+                        },
+                        success: function(data) {
+                            var paciente = JSON.parse(data);
+                            document.getElementById("nombre").value = paciente.nombre;
+                            document.getElementById("apellido").value = paciente.apellido;
+                            document.getElementById("carnet").value = paciente.Carnet;
+                            document.getElementById("dui").value = paciente.dui;
+                            document.getElementById("direccion").value = paciente.direccion;
+                            document.getElementById("motivo").value = paciente.motivo;
+                        }
+                    });
+                }
+            </script>
 </body>
+
 </html>

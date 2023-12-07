@@ -1,3 +1,7 @@
+<?php 
+    include("../php/conexion_bd.php");
+    include("../php/controlador.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,10 +40,6 @@
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Iniciar Sesión"></td>
-                    <?php 
-                    include("../php/conexion_bd.php");
-                    include("../php/controlador.php");
-                ?>
                     <td colspan="2"><input name="btningresar" type="submit" value="Iniciar Sesión"></td>
 
                 </tr>

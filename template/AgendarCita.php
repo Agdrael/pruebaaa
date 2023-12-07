@@ -1,6 +1,6 @@
-<?php 
-            include("../php/conexion_bd.php");
-            include("../php/controlador.php");
+<?php
+include("../php/conexion_bd.php");
+include("../php/controlador_agendarCita.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/citas.css">
     <!-- java -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-   <!--  <script src="../java/change.js"></script> -->
+    <!--  <script src="../java/change.js"></script> -->
 </head>
 
 <body>
@@ -47,15 +47,14 @@
                 <img src="../imagenes/descarga.png" alt="">
             </nav>
 
-            <nav>
-                <a href="#" class="items-links"><img src="../imagenes/doctor-white.png" alt="">Doctores</a>
-                <a href="#" class="items-links"><img src="../imagenes/nurse-white.png" alt="">Enfermeras</a>
-                <a href="areas.html" class="items-links"><img src="../imagenes/area-white.png" alt="">Areas</a>
-                <a href="#" class="items-links"><img src="../imagenes/area-white.png" alt="">Nosotros</a>
+            <nav style="padding-top: 40px;">
+                <a href="inicioHospital.php" class="items-link"><img src="../imagenes2/area-white.png" alt="">Agregar Pacientes</a>
+                <a href="registro.php" class="items-link"><img src="../imagenes2/doctor-white.png" alt="">Editar citas</a>
+
             </nav>
-             <nav class="redes">
+            <nav class="redes">
                 <a href="../index.html">Cerrar sesión</a>
-           <!--      <a href="#">Salir</a> -->
+                <!--      <a href="#">Salir</a> -->
             </nav>
             <label for="btn-menu">x</label>
         </div>
@@ -67,69 +66,65 @@
     <section class="forms">
         <img src="../imagenes/descarga.png" alt="">
         <!-- opción de agregar -->
-        <form action="" class="form1 card" data-content id="agregar">
+        <form method="post" action="" class="form1 card" data-content id="agregar">
             <h1>Agendar</h1>
             <div>
                 <label for="SeleccionDui">Seleccione el Dui del paciente: </label>
                 <select id="duiSelect" onchange="cargarInfo()">
                     <?php
-                        $sql = "SELECT dui FROM pacientes";
-                        $result =$conexion->query($sql);
-                        if($result->num_rows > 0)
-                        {
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<option value='" . $row['dui'] . "'>" . $row['dui']. "</option>";
-                            }
+                    $sql = "SELECT dui FROM pacientes";
+                    $result = $conexion->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['dui'] . "'>" . $row['dui'] . "</option>";
                         }
+                    }
                     ?>
                 </select>
             </div>
             <div>
                 <label for="">Nombre:</label>
-                <input id="nombre" type="text">
+                <input name="nombre" id="nombre" type="text">
             </div>
             <div>
                 <label for="">Apellido:</label>
-                <input id="apellido" type="text">
+                <input name="apellido" id="apellido" type="text">
             </div>
             <div>
                 <label for="">Carnet:</label>
                 <!-- los inputs text serán reemplazados con textbox en C# -->
-                <input id="carnet" type="text">
+                <input name="carnet" id="carnet" type="text">
             </div>
             <div>
                 <label for="">Fecha: </label>
-                <input type="datetime-local" id="fecha" id="">
+                <input name="fecha" type="datetime-local" id="fecha" id="">
             </div>
             <div>
                 <label for="">Motivo:</label>
-                <input id="motivo" type="text">
+                <input name="motivo" id="motivo" type="text">
             </div>
             <div>
-                <input type="submit" value="Agendar">
+                <input name="btnCrearCita" type="submit" value="Agendar">
             </div>
         </form>
         <!-- fin de opción agregar -->
-        
+
         <script>
-            function cargarInfo() 
-            {
+            function cargarInfo() {
                 var select = document.getElementById("duiSelect");
                 var selectedDui = select.options[select.selectedIndex].value;
-                $.ajax
-                ({
+                $.ajax({
                     type: "POST",
                     url: "../php/obtener_info.php",
-                    data: { dui: selectedDui },
-                    success: function (data)
-                    {
+                    data: {
+                        dui: selectedDui
+                    },
+                    success: function(data) {
                         var paciente = JSON.parse(data);
                         document.getElementById("nombre").value = paciente.nombre;
                         document.getElementById("apellido").value = paciente.apellido;
                         document.getElementById("carnet").value = paciente.Carnet;
-                        document.getElementById("motivo").value = paciente.motivo;
-                    }   
+                    }
                 });
             }
         </script>
