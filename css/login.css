@@ -1,129 +1,201 @@
-body {
-    background-color: #f0f0f0;
-    font-family: 'Arial', sans-serif;
+/* primera form */
+.form1 {
+    width: 430px;
+    height: 90vh;
     text-align: center;
-    margin: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.966);
+    margin: auto;
+    margin-top: 30px;
 }
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
+.form1:hover{
+    box-shadow: 0px 0px 20px #c92d3f8e;
 }
-
-.login-table,
-.account-check-table {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: left;
+.form1 div{
+margin: 30px 0 0 0;
 }
-
-h2 {
+.form1 h2 {
     color: #c92d3f;
-    margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #eb1d36;
-}
-
-input {
+    margin: 10px 30px 0 10px;
     width: 100%;
+    font-size: 2.6rem;
+}
+.form1 i {
+    display: inline-block;
+    position: absolute;
+    width: 100px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    color: #eb1d36;
+    font-size: 2.9rem;
+}
+.form1 input[type="text"] {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
     padding: 8px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #fa9484;
     border-radius: 4px;
     outline: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    font-size: 1.5rem;
+    margin-left: 30px;
 }
-
-span {
-    cursor: pointer;
+.form1 input[type="password"] {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #fa9484;
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    font-size: 1.5rem;
+    margin-left: 30px;
 }
-
-input[type="submit"] {
+.form1 input[type="submit"] {
+    width: 150px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #fa9484;
+    border-radius: 4px;
+    outline: none;
+    color: var(--color2);
     background-color: #E74646;
     color: white;
     cursor: pointer;
     margin-top: 10px;
+    transition: all 0.3s ease;
 }
 
-input[type="submit"]:hover {
+
+.form1 span {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--color2);
+}
+
+.form1 input[type="submit"]:hover {
     background-color: #A555EC;
 }
 
-input[type="checkbox"] {
+.form1 input[type="checkbox"] {
     margin-right: 5px;
 }
 
-.toggle-password {
+.form1 .toggle-password {
     cursor: pointer;
     color: #333;
     font-size: 12px;
-    margin-top: 5px;
-    text-decoration: underline;
+    font-size: 1.2rem;
+    text-align: center;
+    
 }
 
-/* Añade estilos para la ventana modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
+/* segunda form  */
+.form2 {
+    width: 430px;
+    height: 90vh;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.966);
+    margin: auto;
+    margin-top: 30px;
+}
+.form2:hover{
+    box-shadow: 0px 0px 20px #c92d3f8e;
+}
+.form2 div{
+margin: 30px 0 0 0;
+}
+.form2 h2 {
+    color: #c92d3f;
+    margin: 10px 30px 0 10px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1; /* Asegura que la ventana modal esté en la parte superior */
+    font-size: 2.6rem;
+}
+.form2 i {
+    display: inline-block;
+    position: absolute;
+    width: 100px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    color: #eb1d36;
+    font-size: 2.9rem;
 }
 
-.modal-content {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 300px;
+.form2 input[type="text"] {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #fa9484;
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    font-size: 1.5rem;
+    margin-left: 30px;
+}
+.form2 input[type="password"] {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #fa9484;
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    font-size: 1.5rem;
+    margin-left: 30px;
+}
+.form2 input[type="submit"] {
+    width: 150px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #fa9484;
+    border-radius: 4px;
+    outline: none;
+    color: var(--color2);
+    background-color: #E74646;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+
+.form2 span {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--color2);
+}
+
+.form2 input[type="submit"]:hover {
+    background-color: #A555EC;
+}
+
+.form2 input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form2 .toggle-password {
+    cursor: pointer;
+    color: #333;
+    font-size: 12px;
+    font-size: 1.2rem;
     text-align: center;
 }
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.modal-close {
-    cursor: pointer;
-    color: #eb1d36;
-    font-size: 20px;
-}
-
-.modal-close:hover {
-    color: #a50f2f;
-}
-
-@media screen and (max-width: 600px) {
-    .modal-content {
-        width: 80%;
-    }
-}
-
-.active-form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-}
-
-.hidden-form {
+/* para ocultar la segunda form  */
+.hidden {
     display: none;
 }

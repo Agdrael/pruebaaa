@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/menulateral.css">
     <link rel="stylesheet" href="../css/contenidoinicio.css">
     <link rel="stylesheet" href="../css/areas.css">
     <link rel="stylesheet" href="../css/formulario.css">
+    <link rel="stylesheet" href="../css/registros.css">
     <title>Formulario de Registro de Pacientes</title>
     <style>
         body {
@@ -59,11 +59,6 @@
             text-align: left;
         }
 
-        #pacientesTabla th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
         img {
             display: block;
             margin: 0 auto;
@@ -85,13 +80,17 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #8645a0;
         }
     </style>
 </head>
 
 <body>
-
+<!-- para salir xd -->
+<div class="salir">
+    <a href="#">Regresar</a>
+</div>
+<!-- para salir fin xd -->
     <h2>Formulario de Registro de Pacientes</h2>
     <h2>Registro de Pacientes</h2>
     <table id="pacientesTabla">

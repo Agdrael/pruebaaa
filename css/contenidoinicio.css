@@ -259,11 +259,11 @@
     margin-right: 350px;
     width: 190px;
 }
-.form3 #duiSelect{
+.form3 #duiSelectDelete{
     width: 180px;
     position: relative;
-    top: 50px;
-    right:80px;
+    top: 40px;
+    right: 10px;
 }
 /* los input text en la form ceran remplazados con textbos en c# */
 .form3 input[type="text"]{
